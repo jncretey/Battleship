@@ -128,12 +128,16 @@ namespace DLL_Server
                     this._actionError(from, message);
                     break;
 
-                case "LIST_GAMES":
-                    this._actionListGames(from, message);
+                case "JOIN_GAME":
+                    this._actionJoinGame(from, message);
                     break;
 
                 case "LOGIN":
                     this._actionLogin(from, message);
+                    break;
+
+                case "SEND_GAMES_LIST":
+                    this._actionSendGamesList(from, message);
                     break;
 
                 default:
@@ -160,6 +164,7 @@ namespace DLL_Server
                 from.send(new MSG_MESSAGE("GAME_JOINED", game));
             }
 
+            // User not logged.
             else
             {
                 from.send(new MSG_MESSAGE("ERROR", "Please connect before"));
@@ -171,9 +176,45 @@ namespace DLL_Server
             this._log("Client : " + from.IP + ":" + from.Port.ToString() + "Error : \"" + message.Values.ToString() + "\"");
         }
 
-        private void _actionListGames(OBJ_Client from, MSG_MESSAGE message)
+        private void _actionJoinGame(OBJ_Client from, MSG_MESSAGE message)
         {
+            // if user is Logged
+            if (from.Login != null)
+            {
+                MSG_Game game = (MSG_Game)message.Values;
+                
+                // If game exist.
+                if(this._games.ContainsKey(game.ID))
+                {
+                    OBJ_Game selectedGame = this._games[game.ID];
 
+                    // If game is free
+                    if(null == selectedGame.Player2)
+                    {
+                        selectedGame.Player2 = from;
+                        selectedGame.Player1.send(new MSG_MESSAGE("PLAYER_CONNECTED", from.Login));
+                        from.send(new MSG_MESSAGE("GAME_JOINED", game));
+                    }
+
+                    // if game is full
+                    else
+                    {
+                        from.send(new MSG_MESSAGE("ERROR", "Game is full"));
+                    }
+                }
+
+                // If game not exist.
+                else
+                {
+                    from.send(new MSG_MESSAGE("ERROR", "Game not exist"));
+                }
+            }
+
+            // User not logged.
+            else
+            {
+                from.send(new MSG_MESSAGE("ERROR", "Please connect before"));
+            }
         }
 
         private void _actionLogin(OBJ_Client from, MSG_MESSAGE message)
@@ -183,6 +224,26 @@ namespace DLL_Server
             this._log("Client : " + from.IP + ":" + from.Port.ToString() + "connected on \"" + from.Login + "\"");
         }
 
+        private void _actionSendGamesList(OBJ_Client from, MSG_MESSAGE message)
+        {
+            // if user is Logged
+            if (from.Login != null)
+            {
+                List<MSG_Game> games = new List<MSG_Game>();
+                foreach (KeyValuePair<Guid, OBJ_Game> game in this._games)
+                {
+                    games.Add(game.Value.MSG_Game);
+                }
+
+                from.send(new MSG_MESSAGE("GAMES_LIST", games));
+            }
+
+            // User not logged.
+            else
+            {
+                from.send(new MSG_MESSAGE("ERROR", "Please connect before"));
+            }
+        }
 
         private void _log(String message)
         {
