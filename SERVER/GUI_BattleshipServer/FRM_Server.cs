@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GUI_BattleshipServer
 {
-    public partial class Form1 : Form
+    public partial class FRM_Server : Form
     {
-        public Form1()
+        public FRM_Server()
         {
             InitializeComponent();
         }
