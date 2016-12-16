@@ -75,6 +75,7 @@
             this.BTN_StartStop.TabIndex = 0;
             this.BTN_StartStop.Text = "START";
             this.BTN_StartStop.UseVisualStyleBackColor = true;
+            this.BTN_StartStop.Click += new System.EventHandler(this.BTN_StartStop_Click);
             // 
             // RTB_Logs
             // 
