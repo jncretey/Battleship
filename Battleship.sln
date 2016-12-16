@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_BattleshipServer", "SER
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLL_Server", "SERVER\DLL_Server\DLL_Server.csproj", "{092D8951-00BF-48FC-9078-E3BA17A174D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShip_Messages", "BattleShip_Messages\BattleShip_Messages.csproj", "{356EEE0C-C503-426D-8DD8-34D9791D0446}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{092D8951-00BF-48FC-9078-E3BA17A174D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{092D8951-00BF-48FC-9078-E3BA17A174D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{092D8951-00BF-48FC-9078-E3BA17A174D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{356EEE0C-C503-426D-8DD8-34D9791D0446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{356EEE0C-C503-426D-8DD8-34D9791D0446}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{356EEE0C-C503-426D-8DD8-34D9791D0446}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{356EEE0C-C503-426D-8DD8-34D9791D0446}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
