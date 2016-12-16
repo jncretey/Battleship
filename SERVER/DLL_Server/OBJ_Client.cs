@@ -28,7 +28,7 @@ namespace DLL_Server
         #region GETTERS/SETTERS
 
         public String IP { get { return this._ip; } }
-        public String Login { get { return this._login; } }
+        public String Login { get { return this._login; } set { this._login = value; } }
         public int Port { get { return this._port; } }
         public Boolean Connected { get { return this._connected; } }
 

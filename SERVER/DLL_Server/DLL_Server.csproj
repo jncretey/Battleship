@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="BattleshipServer.cs" />
     <Compile Include="OBJ_Client.cs" />
+    <Compile Include="OBJ_Game.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

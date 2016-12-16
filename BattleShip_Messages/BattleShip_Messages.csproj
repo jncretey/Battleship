@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MSG_Game.cs" />
     <Compile Include="MSG_Login.cs" />
     <Compile Include="MSG_MESSAGE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
