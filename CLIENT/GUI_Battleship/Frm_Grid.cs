@@ -12,7 +12,8 @@ namespace GUI_Battleship
 {
     public partial class Frm_Grid : Form
     {
-        const int GRID_DIM = 10;
+        const int GRID_COL = 10;
+        const int GRID_ROW = 10;
 
         public Frm_Grid()
         {
@@ -28,32 +29,39 @@ namespace GUI_Battleship
 
         private void gridAdd(String tlpName, int tlpParentRow, int tlpParentCol)
         {
-            MyTlp tlp = new MyTlp();
+            CTR_Tlp tlp = new CTR_Tlp();
             tlp.Name = tlpName;
             tlp.Dock = DockStyle.Fill;
             tlp.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset;
 
             this.Tlp_Stack.Controls.Add(tlp, tlpParentCol, tlpParentRow);
 
-            gridInit(GRID_DIM, tlp);
+            gridInit(GRID_COL, GRID_ROW, tlp);
         }
 
         /// <summary>
         /// Init player grid
         /// </summary>
         /// <param name="gridDim">Grid dimension</param>
-        private void gridInit(int gridDim, TableLayoutPanel tlp)
+        private void gridInit(int gridCol, int gridRow, TableLayoutPanel tlp)
         {
             tlp.RowStyles.Clear();
             tlp.ColumnStyles.Clear();
 
-            tlp.ColumnCount = gridDim + 1;
-            tlp.RowCount = gridDim + 1;
+            gridCol += 1;
+            gridRow += 1;
 
-            for (int i = 0; i < gridDim + 1; i++)
+            tlp.ColumnCount = gridCol;
+            tlp.RowCount = gridRow;
+
+            for (int i = 0; i < gridCol; i++)
             {
-                tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, (100 / (gridDim + 1))));
-                tlp.RowStyles.Add(new RowStyle(SizeType.Percent, (100 / (gridDim + 1))));
+                tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, (100 / gridCol)));
+            }
+
+            for (int i = 0; i < gridRow + 1; i++)
+            {
+                tlp.RowStyles.Add(new RowStyle(SizeType.Percent, (100 / gridRow)));
             }
 
             for (int row = 0; row < tlp.RowCount; row++)
@@ -77,6 +85,7 @@ namespace GUI_Battleship
             label.TextAlign = ContentAlignment.MiddleCenter;
             label.Dock = DockStyle.Fill;
             label.Name = row.ToString() + ";" + column.ToString();
+            label.Tag = false;
             label.MouseClick += new MouseEventHandler(clickOnLabel);
             this.labelProperties(row, column, label);
 
@@ -91,9 +100,9 @@ namespace GUI_Battleship
         public void clickOnLabel(object sender, MouseEventArgs e)
         {
             Label label = (Label)sender;
-            if (!label.Name.Contains("0"))
+            if (!(label.BackColor == Vars.LABEL_HEADER) && (Boolean)label.Tag == false)
             {
-                MessageBox.Show(((Label)sender).Name.ToString());
+                label.BackColor = Vars.LABEL_TOUCH;
             }
         }
 
@@ -107,24 +116,24 @@ namespace GUI_Battleship
         {
             if (row != 0 || column != 0)
             {
-                label.BackColor = Color.DarkTurquoise;
+                label.BackColor = Vars.LABEL_UNTOUCH;
             }
 
             if (row == 0 && column != 0)
             {
                 label.Text = column.ToString();
-                label.BackColor = Color.DimGray;
+                label.BackColor = Vars.LABEL_HEADER;
             }
 
             if (row != 0 && column == 0)
             {
                 label.Text = row.ToString();
-                label.BackColor = Color.DimGray;
+                label.BackColor = Vars.LABEL_HEADER;
             }
 
             if (row == 0 && column == 0)
             {
-                label.BackColor = Color.DimGray;
+                label.BackColor = Vars.LABEL_HEADER;
             }
         }
     }

@@ -2,9 +2,9 @@
 
 namespace GUI_Battleship
 {
-    public class MyTlp : TableLayoutPanel
+    public class CTR_Tlp : TableLayoutPanel
     {
-        public MyTlp()
+        public CTR_Tlp()
         {
             DoubleBuffered = true;
         }
