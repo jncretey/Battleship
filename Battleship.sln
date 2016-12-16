@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_Battleship", "CLIENT\GU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_BattleshipServer", "SERVER\GUI_BattleshipServer\GUI_BattleshipServer.csproj", "{143F8DDF-7BCD-4CD8-9701-6939F6D4AF43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLL_Server", "SERVER\DLL_Server\DLL_Server.csproj", "{092D8951-00BF-48FC-9078-E3BA17A174D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{143F8DDF-7BCD-4CD8-9701-6939F6D4AF43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{143F8DDF-7BCD-4CD8-9701-6939F6D4AF43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{143F8DDF-7BCD-4CD8-9701-6939F6D4AF43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{092D8951-00BF-48FC-9078-E3BA17A174D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{092D8951-00BF-48FC-9078-E3BA17A174D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{092D8951-00BF-48FC-9078-E3BA17A174D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{092D8951-00BF-48FC-9078-E3BA17A174D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,5 +38,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8D99981A-8D57-4449-9B47-5B75D5AE7AF4} = {7D8F76C1-5795-4CB8-B2DD-6EE895E8B0FD}
 		{143F8DDF-7BCD-4CD8-9701-6939F6D4AF43} = {435E888E-8EDB-439D-A377-DF48770B6198}
+		{092D8951-00BF-48FC-9078-E3BA17A174D1} = {435E888E-8EDB-439D-A377-DF48770B6198}
 	EndGlobalSection
 EndGlobal
