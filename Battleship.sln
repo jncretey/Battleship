@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CLIENT", "CLIENT", "{7D8F76
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_Battleship", "CLIENT\GUI_Battleship\GUI_Battleship.csproj", "{8D99981A-8D57-4449-9B47-5B75D5AE7AF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_BattleshipServer", "GUI_BattleshipServer\GUI_BattleshipServer.csproj", "{143F8DDF-7BCD-4CD8-9701-6939F6D4AF43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_BattleshipServer", "SERVER\GUI_BattleshipServer\GUI_BattleshipServer.csproj", "{143F8DDF-7BCD-4CD8-9701-6939F6D4AF43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
