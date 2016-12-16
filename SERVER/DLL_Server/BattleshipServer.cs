@@ -22,6 +22,8 @@ namespace DLL_Server
         private Action<String> _callbackLog = null;
         private Thread _waitingClient = null;
 
+        private Dictionary<Guid, OBJ_Game> _games = null;
+
         #endregion
 
         #region GETTERS/SETTERS
@@ -37,6 +39,8 @@ namespace DLL_Server
         {
             this._port = port;
             this._callbackLog = callbackLog;
+
+            this._games = new Dictionary<Guid, OBJ_Game>();
         }
 
         public void Stop()
@@ -103,7 +107,7 @@ namespace DLL_Server
 
                 if (null != listen)
                 {
-                    this._action(listen);
+                    this._action(client, listen);
                 }
             }
         }
@@ -116,6 +120,18 @@ namespace DLL_Server
         {
             switch (message.Message)
             {
+                case "CREATE_GAME":
+                    this._actionCreateGame(from, message);
+                    break;
+
+                case "ERROR":
+                    this._actionError(from, message);
+                    break;
+
+                case "LIST_GAMES":
+                    this._actionListGames(from, message);
+                    break;
+
                 case "LOGIN":
                     this._actionLogin(from, message);
                     break;
@@ -125,10 +141,48 @@ namespace DLL_Server
             }
         }
 
+        private void _actionCreateGame(OBJ_Client from, MSG_MESSAGE message)
+        {
+            // if user is Logged
+            if (from.Login != null)
+            {
+                Guid guid = Guid.NewGuid();
+                MSG_Game createGame = (MSG_Game)message.Values;
+
+                while (this._games.ContainsKey(guid))
+                {
+                    guid = Guid.NewGuid();
+                }
+
+                OBJ_Game game = new OBJ_Game(guid, from, createGame);
+                this._games.Add(guid, game);
+
+                from.send(new MSG_MESSAGE("GAME_JOINED", game));
+            }
+
+            else
+            {
+                from.send(new MSG_MESSAGE("ERROR", "Please connect before"));
+            }
+        }
+
+        private void _actionError(OBJ_Client from, MSG_MESSAGE message)
+        {
+            this._log("Client : " + from.IP + ":" + from.Port.ToString() + "Error : \"" + message.Values.ToString() + "\"");
+        }
+
+        private void _actionListGames(OBJ_Client from, MSG_MESSAGE message)
+        {
+
+        }
+
         private void _actionLogin(OBJ_Client from, MSG_MESSAGE message)
         {
             MSG_Login login = (MSG_Login)message.Values;
+            from.Login = login.Name;
+            this._log("Client : " + from.IP + ":" + from.Port.ToString() + "connected on \"" + from.Login + "\"");
         }
+
 
         private void _log(String message)
         {
