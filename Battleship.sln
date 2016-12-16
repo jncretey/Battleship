@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SERVER", "SERVER", "{435E888E-8EDB-439D-A377-DF48770B6198}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CLIENT", "CLIENT", "{7D8F76C1-5795-4CB8-B2DD-6EE895E8B0FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_Battleship", "CLIENT\GUI_Battleship\GUI_Battleship.csproj", "{8D99981A-8D57-4449-9B47-5B75D5AE7AF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_BattleshipServer", "GUI_BattleshipServer\GUI_BattleshipServer.csproj", "{143F8DDF-7BCD-4CD8-9701-6939F6D4AF43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D99981A-8D57-4449-9B47-5B75D5AE7AF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D99981A-8D57-4449-9B47-5B75D5AE7AF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D99981A-8D57-4449-9B47-5B75D5AE7AF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D99981A-8D57-4449-9B47-5B75D5AE7AF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{143F8DDF-7BCD-4CD8-9701-6939F6D4AF43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{143F8DDF-7BCD-4CD8-9701-6939F6D4AF43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{143F8DDF-7BCD-4CD8-9701-6939F6D4AF43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{143F8DDF-7BCD-4CD8-9701-6939F6D4AF43}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8D99981A-8D57-4449-9B47-5B75D5AE7AF4} = {7D8F76C1-5795-4CB8-B2DD-6EE895E8B0FD}
+		{143F8DDF-7BCD-4CD8-9701-6939F6D4AF43} = {435E888E-8EDB-439D-A377-DF48770B6198}
+	EndGlobalSection
+EndGlobal
