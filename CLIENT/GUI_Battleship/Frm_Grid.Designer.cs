@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Grid));
             this.Tlp_Stack = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
@@ -35,8 +36,8 @@
             // 
             this.Tlp_Stack.ColumnCount = 3;
             this.Tlp_Stack.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.Tlp_Stack.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.Tlp_Stack.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.Tlp_Stack.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.Tlp_Stack.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.Tlp_Stack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Tlp_Stack.Location = new System.Drawing.Point(0, 0);
             this.Tlp_Stack.Name = "Tlp_Stack";
@@ -55,8 +56,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 666);
             this.Controls.Add(this.Tlp_Stack);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_Grid";
-            this.Text = "Form1";
+            this.Text = "BattleShip";
             this.ResumeLayout(false);
 
         }
